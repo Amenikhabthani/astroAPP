@@ -47,19 +47,27 @@ astrology-api/ │ ├── src/ │ ├── main.py # FastAPI main app │ �
    OPENAI_API_KEY=your_llm_api_key
 
 ## 🚀 Run the API
-   ```bash
- uvicorn src.main:app --reload
 
-##🧪 Example Usage 
-when testing with postman
+   ```bash 
+   uvicorn src.main:app --reload
 
-Use POST request:http://127.0.0.1:8000/interpret
-|
-Choose Body->JSON input
-|
-Example of body request:
+---
+## 🧪 Example Usage
+
+You can test the API using tools like Postman.
+
+Use a POST request to:
+http://127.0.0.1:8000/interpret
+
+Under the Body tab:
+
+-Choose raw
+
+-Set the type to JSON
+
+-Paste the example body:
 {
   "question": "Will I get the job?"
 }
-|
-Then click Send.
+
+Click Send to receive the response.
