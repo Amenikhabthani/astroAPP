@@ -80,7 +80,12 @@ print(generate_interpretation("What does it mean if my sun is in Leo and moon is
 
 """
 from openai import OpenAI
-OPENAI_API_KEY="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"
+
+from dotenv import load_dotenv
+import os
+# Load API key from .env
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 model = "gpt-4o-mini"
 
 # Create OpenAI client

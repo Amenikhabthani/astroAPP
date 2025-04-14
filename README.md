@@ -1,3 +1,9 @@
+---
+#Astrology API
+---
+
+#The project structure
+---
 horary_astrology_api/
 │── src/
 │   │── main.py                  # FastAPI main application file
