@@ -31,21 +31,26 @@ astrology-api/ │ ├── src/ │ ├── main.py # FastAPI main app │ �
    git clone https://github.com/Amenikhabthani/astroAPP.git
    cd astroAPP
 2. **Create & activate a virtual environment**
-
-python -m venv venv
-source venv/bin/activate       # Windows: venv\Scripts\activate
+      ```bash
+   python -m venv venv
+   source venv/bin/activate       # Windows: venv\Scripts\activate
 
 3. **Install dependencies**
-pip install -r requirements.txt
+   ```bash
+
+   pip install -r requirements.txt
 
 4. **Create a .env file**
-ASTRO_API_KEY=your_astro_api_key
-OPENAI_API_KEY=your_llm_api_key
+   ```bash
+
+   ASTRO_API_KEY=your_astro_api_key
+   OPENAI_API_KEY=your_llm_api_key
 
 ## 🚀 Run the API
-uvicorn src.main:app --reload
+   ```bash
+ uvicorn src.main:app --reload
 
-## 🧪 Example Usage 
+##🧪 Example Usage 
 when testing with postman
 
 Use POST request:http://127.0.0.1:8000/interpret
