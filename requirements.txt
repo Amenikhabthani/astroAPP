@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+requests
+pymongo
+openai
+python-dotenv
+geocoder 
+pytz
+transformers
+ctransformers
+accelerate
+spacy

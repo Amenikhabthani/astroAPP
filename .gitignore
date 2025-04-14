@@ -1,0 +1,9 @@
+# Ignore environment variables
+.env
+*.env
+# Ignore virtual environments
+venv/
+# Byte-compiled / cache files
+#__pycache__/
+#*.py[cod]
+#*.pyo
