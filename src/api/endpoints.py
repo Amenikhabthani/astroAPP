@@ -7,7 +7,6 @@ from services.utilis import  classify_question
 from db.database import save_question, get_last_n_questions, supabase, get_mock_user_id
 from fastapi import Request
 
-
 router = APIRouter()
 
 class AstrologyRequest(BaseModel):
@@ -38,8 +37,6 @@ def classify_endpoint(input_data: QuestionInput):
         return {"classification": result}  # Ensure it's returned as a valid dictionary
     except Exception as e:
         return {"error": str(e)}
-
-
 
 # Use the generate_interpretation function without chunking
 @router.post("/interpret", response_model=AstrologyResponse)

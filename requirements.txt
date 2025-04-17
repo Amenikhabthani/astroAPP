@@ -1,7 +1,6 @@
 fastapi
 uvicorn
 requests
-pymongo
 openai
 python-dotenv
 geocoder 
@@ -10,3 +9,4 @@ transformers
 ctransformers
 accelerate
 spacy
+supabase
