@@ -45,6 +45,8 @@ astrology-api/ │ ├── src/ │ ├── main.py # FastAPI main app │ �
 
    ASTRO_API_KEY=your_astro_api_key
    OPENAI_API_KEY=your_llm_api_key
+   SUPABASE_KEY=your_supabase_api_key
+   SUPABASE_URL=your_supabase_url
 
 ## 🚀 Run the API
 
