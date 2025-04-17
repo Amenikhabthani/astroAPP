@@ -1,7 +1,5 @@
 from fastapi import FastAPI
 from api.endpoints import router as astrology_router
-from db.database import init_db
-init_db()
 
 app = FastAPI(title="Astrology API")
 

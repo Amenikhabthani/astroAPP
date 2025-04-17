@@ -4,7 +4,7 @@ from typing import Optional, List
 from services.astrology_service import process_natal_aspects_request, format_astrology_prompt, summarize_chart, get_natal_chart
 from services.llm_service import generate_interpretation
 from services.utilis import  classify_question
-from db.database import save_question, get_last_n_questions
+from db.database import save_question, get_last_n_questions, supabase, get_mock_user_id
 from fastapi import Request
 
 
@@ -39,11 +39,14 @@ def classify_endpoint(input_data: QuestionInput):
     except Exception as e:
         return {"error": str(e)}
 
+
+
 # Use the generate_interpretation function without chunking
 @router.post("/interpret", response_model=AstrologyResponse)
 async def interpret_astrology(request: Request, astrology_request: AstrologyRequest):
     try:
-        user_id = request.client.host  # Replace with user ID in production
+        # Use the mock user ID for testing
+        user_id = get_mock_user_id(request)
 
         # Step 1: Generate the natal chart data
         chart_data = get_natal_chart(astrology_request.question, astrology_request.datetime, astrology_request.location)
@@ -67,7 +70,8 @@ async def interpret_astrology(request: Request, astrology_request: AstrologyRequ
         # Do NOT return history in the response
         return {
             "question": astrology_request.question,
-            "interpretation": full_interpretation
+            "interpretation": full_interpretation,
+            "history":history_dicts
         }
 
     except Exception as e:

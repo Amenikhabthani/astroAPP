@@ -62,8 +62,6 @@ def get_user_location_from_request(request: Request):
 
 # Load the spaCy model for text processing
 nlp = spacy.load("en_core_web_sm")
-
-
 # Load zero-shot classification model
 classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
 

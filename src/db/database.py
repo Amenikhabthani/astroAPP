@@ -1,51 +1,39 @@
-import sqlite3
 from datetime import datetime
+import os
+from supabase import create_client, Client
+from fastapi import Request
 
-DB_FILE = "astrology_history.db"
+# Initialize Supabase client
+url: str = os.environ.get("SUPABASE_URL")
+key: str = os.environ.get("SUPABASE_KEY")
+#supabase: Client = create_client(url, key)
+supabase = create_client(url, key)
 
-def init_db():
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS user_questions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id TEXT,
-            question TEXT,
-            interpretation TEXT,
-            datetime TEXT,
-            location TEXT,
-            created_at TEXT
-        )
-    """)
-    conn.commit()
-    conn.close()
+# Mock user ID for testing purposes
+def get_mock_user_id(request: Request):
+    # For testing, we are using a hardcoded user ID
+    return "mock_user_id_123"  # Replace with any string to simulate a user ID
 
+# Save a new question to Supabase
 def save_question(user_id, question, interpretation, datetime_data, location_data):
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute("""
-        INSERT INTO user_questions (user_id, question, interpretation, datetime, location, created_at)
-        VALUES (?, ?, ?, ?, ?, ?)
-    """, (
-        user_id,
-        question,
-        interpretation,
-        str(datetime_data),
-        str(location_data),
-        datetime.now().isoformat()
-    ))
-    conn.commit()
-    conn.close()
+    data = {
+        "user_id": user_id,
+        "question": question,
+        "interpretation": interpretation,
+        "datetime": str(datetime_data),
+        "location": str(location_data),
+        "created_at": datetime.now().isoformat()
+    }
+    supabase.table("user_questions").insert(data).execute()
 
+
+# Get the last N questions for a user
 def get_last_n_questions(user_id, n=3):
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute("""
-        SELECT question, interpretation FROM user_questions
-        WHERE user_id = ?
-        ORDER BY created_at DESC
-        LIMIT ?
-    """, (user_id, n))
-    rows = cursor.fetchall()
-    conn.close()
-    return [{"question": r[0], "interpretation": r[1]} for r in rows]
+    response = supabase.table("user_questions") \
+        .select("question, interpretation") \
+        .eq("user_id", user_id) \
+        .order("created_at", desc=True) \
+        .limit(n) \
+        .execute()
+
+    return response.data

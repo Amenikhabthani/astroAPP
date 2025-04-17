@@ -3,7 +3,7 @@ import requests
 from services.utilis import get_current_datetime, get_user_location, classify_question
 from services.llm_service import generate_interpretation
 from dotenv import load_dotenv
-
+import os
 # Load API key from .env
 load_dotenv()
 API_KEY = os.getenv("ASTRO_API_KEY")

@@ -80,7 +80,6 @@ print(generate_interpretation("What does it mean if my sun is in Leo and moon is
 
 """
 from openai import OpenAI
-
 from dotenv import load_dotenv
 import os
 # Load API key from .env
@@ -133,5 +132,6 @@ def generate_interpretation(prompt: str) -> str:
             return "You have exceeded your current quota. Please check your plan and billing details."
         print(f"Generation error: {str(e)}")
         return "Error generating interpretation. Please try again."
-prompt="hello chat,will i get married soon?"
-print(generate_interpretation(prompt))
+#test the llm:
+#prompt="hello chat,will i get married soon?"
+#print(generate_interpretation(prompt))
