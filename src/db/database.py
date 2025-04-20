@@ -4,8 +4,8 @@ from supabase import create_client, Client
 from fastapi import Request
 
 # Initialize Supabase client
-url: str = os.environ.get("SUPABASE_URL")
-key: str = os.environ.get("SUPABASE_KEY")
+url: str = os.environ.get("url")
+key: str = os.environ.get("key")
 #supabase: Client = create_client(url, key)
 supabase = create_client(url, key)
 
@@ -15,13 +15,13 @@ def get_mock_user_id(request: Request):
     return "mock_user_id_123"  # Replace with any string to simulate a user ID
 
 # Save a new question to Supabase
-def save_question(user_id, question, interpretation, datetime_data, location_data):
+def save_question(user_id, question, interpretation):
     data = {
         "user_id": user_id,
         "question": question,
         "interpretation": interpretation,
-        "datetime": str(datetime_data),
-        "location": str(location_data),
+        #"datetime": str(datetime_data),
+        #"location": str(location_data)
         "created_at": datetime.now().isoformat()
     }
     supabase.table("user_questions").insert(data).execute()

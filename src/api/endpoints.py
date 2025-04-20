@@ -62,7 +62,7 @@ async def interpret_astrology(request: Request, astrology_request: AstrologyRequ
         full_interpretation = generate_interpretation(prompt)
 
         # Save the current interaction
-        save_question(user_id, astrology_request.question, full_interpretation, astrology_request.datetime, astrology_request.location)
+        save_question(user_id, astrology_request.question, full_interpretation)
 
         # Do NOT return history in the response
         return {

@@ -184,7 +184,7 @@ Translate complex concepts into everyday terms while staying true to William Lil
 **Rules:**
 - Write like you're explaining to a smart friend (no jargon without explanation)
 - Use simple metaphors for astrological concepts
-- Keep under 150 words
+- Keep under 150 words and avoid using unnecessary newlines.
 - Always give a clear bottom-line answer first
 
 **Response Template:**
