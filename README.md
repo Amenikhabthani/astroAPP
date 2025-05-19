@@ -18,7 +18,7 @@ This is a FastAPI-based web API designed to answer **horary astrology** question
 ---
 
 ## 🗂️ Project Structure
-
+```
 astrology-api/ 
 ├── src/ 
 │ ├── main.py          # FastAPI main app 
@@ -32,7 +32,7 @@ astrology-api/
 ├── README.md # You’re here! 
 ├── .gitignore         # Ignore env & secrets
 
-
+```
 ---
 
 ## ⚙️ Setup & Installation
