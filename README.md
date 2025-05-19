@@ -69,7 +69,7 @@ Under the Body tab:
 
 -Paste the example body:
 {
-  "question": "Will I get the job?"
+  "question": "What does my horoscope say for today?"
 }
 
 Click Send to receive the response.
