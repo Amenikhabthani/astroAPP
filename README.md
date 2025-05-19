@@ -44,7 +44,7 @@ astrology-api/
 2. **Create & activate a virtual environment**
       ```bash
    python -m venv venv
-   source venv/bin/activate       # Windows: venv\Scripts\activate
+   source venv/bin/activate       # Windows: . venv\Scripts\activate  
 
 3. **Install dependencies**
    ```bash
