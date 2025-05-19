@@ -23,9 +23,9 @@ astrology-api/
 ├── src/ 
 │ ├── main.py          # FastAPI main app 
 │ ├── api/  endpoints.py      # API endpoints 
-│ ├── services/ ├── astrology_service.py # Horary logic 
-                ├── llm_service.py       # LLM response generator 
-                └── utilis.py            # Utilities 
+│ ├── services/  ├── astrology_service.py # Horary logic 
+│                ├── llm_service.py       # LLM response generator 
+                 └── utilis.py            # Utilities 
 │ ├── db/  database.py        # DB logic 
 ├── .env               # API keys and secrets 
 ├── requirements.txt   # Python dependencies 
