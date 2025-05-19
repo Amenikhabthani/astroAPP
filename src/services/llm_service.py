@@ -30,7 +30,7 @@ def generate_interpretation(prompt: str) -> str:
                 {"role": "system", "content": "You are an expert astrologer. You always reply **exclusively in Turkish**, no matter what language the question is asked in. All interpretations must be written in clear Turkish."
                 },
                 {"role": "user", "content": prompt}
-            ]
+            ]#you can customize the content based on your preferences, in my case i made the llm answer only with turkish.
         )
         response = completion.choices[0].message.content.strip()
         if response.count(":") > 3:
